@@ -1,0 +1,157 @@
+/* style.css */
+/* three colours only: black, white, and red for words the house recognises */
+:root {
+  --ink: #ffffff;
+  --ground: #000000;
+  --red: #ff2a2a;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "DotGothic16", monospace;
+}
+
+/* everything stacks in one column, never wider than a reading width */
+#page {
+  box-sizing: border-box;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* the boxes, same chrome as remembrance */
+.frame {
+  border: 2px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+/* title strip, inverted */
+.hd {
+  background: var(--ink);
+  color: var(--ground);
+  padding: 4px 10px;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+}
+.bd {
+  padding: 16px 18px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.bd p {
+  margin: 0 0 12px;
+}
+
+/* the room's sentence, bigger */
+.sentence {
+  font-size: 24px;
+  line-height: 1.9;
+}
+
+/* a word the house recognises */
+.red {
+  color: var(--red);
+}
+
+/* buttons: white outline, filled when they're the main action */
+.btn,
+.chip {
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--ground);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+}
+.btn {
+  min-height: 48px;
+  padding: 10px 14px;
+  text-align: left;
+}
+/* say it and turn back sit centred */
+#actions .btn {
+  text-align: center;
+}
+.btn.solid {
+  background: var(--ink);
+  color: var(--ground);
+  text-align: center;
+}
+.chip {
+  min-height: 40px;
+  padding: 6px 12px;
+}
+.chip.on {
+  background: var(--ink);
+  color: var(--ground);
+}
+
+/* typed blanks in the sentence */
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--ink);
+  background: var(--ground);
+  border: 2px solid var(--ink);
+  padding: 0 6px;
+  /* each blank grows with what's typed in it */
+  field-sizing: content;
+  min-width: 4em;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+input:focus {
+  outline: none;
+  background: var(--ink);
+  color: var(--ground);
+}
+
+/* layouts */
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.row,
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* the message being built, blanks show as empty boxes */
+.msg {
+  font-size: 24px;
+}
+.blank {
+  display: inline-block;
+  min-width: 3em;
+  border: 2px solid var(--ink);
+  padding: 0 6px;
+}
+
+.note {
+  margin: 0;
+  font-size: 15px;
+}
+
+.hidden {
+  display: none;
+}

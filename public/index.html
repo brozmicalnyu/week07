@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compound</title>
+  <!-- one dot-matrix font for everything -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="page">
+
+    <!-- the introduction, shown once before you go in -->
+    <section class="frame" id="intro">
+      <div class="hd">COMPOUND</div>
+      <div class="bd">
+        <p>This house is only as large as what has been said in it.</p>
+        <p>You are dead. You cannot touch anything. You can only speak.</p>
+        <p>Walk through a doorway that has not been said, and say the room behind it. It will be there for whoever comes after you.</p>
+        <p>The house was here before you. Some words it remembers.</p>
+      </div>
+    </section>
+    <button class="btn solid" id="enter">ENTER</button>
+
+    <!-- the room you're standing in -->
+    <section class="frame hidden" id="here">
+      <div class="hd">A ROOM</div>
+      <div class="bd sentence" id="sentence"></div>
+    </section>
+
+    <!-- whatever the person who said this room left behind -->
+    <section class="frame hidden" id="floor">
+      <div class="hd">ON THE FLOOR</div>
+      <div class="bd" id="message"></div>
+    </section>
+
+    <!-- the four ways out -->
+    <section class="frame hidden" id="doors">
+      <div class="hd">DOORWAYS</div>
+      <div class="bd grid2">
+        <button class="btn" data-dir="n"></button>
+        <button class="btn" data-dir="e"></button>
+        <button class="btn" data-dir="s"></button>
+        <button class="btn" data-dir="w"></button>
+      </div>
+    </section>
+
+    <!-- saying a room that doesn't exist yet -->
+    <section class="frame hidden" id="unsaid">
+      <div class="hd">NOT SAID YET</div>
+      <div class="bd sentence">
+        A <input id="size" list="size-words" placeholder="low"> <input id="room" list="room-words" placeholder="room">
+        of <input id="material" list="material-words" placeholder="lime">.<br>
+        There is a <input id="object" list="object-words" placeholder="chair">
+        that <input id="act" list="act-words" placeholder="faces the wall">.<br>
+        The light is <input id="light" list="light-words" placeholder="borrowed">.
+      </div>
+      <!-- suggestions: everything other visitors have said in each slot -->
+      <datalist id="size-words"></datalist>
+      <datalist id="room-words"></datalist>
+      <datalist id="material-words"></datalist>
+      <datalist id="object-words"></datalist>
+      <datalist id="act-words"></datalist>
+      <datalist id="light-words"></datalist>
+    </section>
+
+    <!-- leaving a message, only from words the house already knows -->
+    <section class="frame hidden" id="leave">
+      <div class="hd">LEAVE SOMETHING ON THE FLOOR</div>
+      <div class="bd stack">
+        <div class="line">
+          <div class="msg" id="draft"></div>
+          <div class="row">
+            <button class="chip" id="another">↻ ANOTHER WAY</button>
+            <button class="chip" id="more">+</button>
+          </div>
+        </div>
+        <div class="chips" id="words"></div>
+      </div>
+    </section>
+
+    <div class="grid2 hidden" id="actions">
+      <button class="btn solid" id="say">SAY IT</button>
+      <button class="btn" id="back">TURN BACK</button>
+    </div>
+
+    <p class="note hidden" id="note"></p>
+
+  </main>
+
+  <!-- type="module" so script.js can import grammar.js -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

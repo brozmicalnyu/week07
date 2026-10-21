@@ -1,0 +1,14 @@
+{
+  "name": "compound",
+  "version": "1.0.0",
+  "description": "an infinite house the dead speak into existence, one room at a time",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "lowdb": "^7.0.1"
+  }
+}
